@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/professional-wasim/gwl-number-formatter/issues"
   },
-  "homepage": "https://github.com/professional-wasim/gwl-number-formatter#readme"
+  "homepage": "https://github.com/professional-wasim/gwl-number-formatter#readme",
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.4",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  }
 }
