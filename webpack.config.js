@@ -1,8 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
-  entry: 'index.tsx', // Modify the entry point as needed
+  entry: 'index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -14,8 +13,8 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        use: 'ts-loader',
       },
     ],
   },

@@ -1,11 +1,13 @@
 {
   "name": "gwl-number-formatter",
-  "version": "1.0.03",
+  "version": "1.0.04",
   "description": "A package to format phone number in various formats.",
-  "main": "index.tsx",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "npm run numberformat"
+    "test": "npm run numberformat",
+    "build": "webpack",
+    "start": "webpack serve --open"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.4",
     "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }

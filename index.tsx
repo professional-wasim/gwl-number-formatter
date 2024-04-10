@@ -1,4 +1,5 @@
-export async function phoneNumberFormatter(phoneNumber: string) {
+phoneNumberFormatter('1234567890');
+export async function phoneNumberFormatter(phoneNumber:string) {
     const digitsOnly = phoneNumber.replace(/\D/g, '');
     
     if (!digitsOnly) {
@@ -25,5 +26,6 @@ export async function phoneNumberFormatter(phoneNumber: string) {
       formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
       formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
     }
+    console.log(formattedPhoneNumber);
     return formattedPhoneNumber;
   }
