@@ -1,0 +1,25 @@
+{
+  "name": "gwl-number-formatter",
+  "version": "1.0.0",
+  "description": "A package to format phone number in various formats.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npm run numberformat"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/professional-wasim/gwl-number-formatter.git"
+  },
+  "keywords": [
+    "npm",
+    "numberformatter",
+    "gwl-number-formatter"
+  ],
+  "author": "Mohammed Wasim Uddin Khan",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/professional-wasim/gwl-number-formatter/issues"
+  },
+  "homepage": "https://github.com/professional-wasim/gwl-number-formatter#readme"
+}
