@@ -1,8 +1,8 @@
 {
   "name": "gwl-number-formatter",
-  "version": "1.0.02",
+  "version": "1.0.03",
   "description": "A package to format phone number in various formats.",
-  "main": "index.js",
+  "main": "index.tsx",
   "type": "module",
   "scripts": {
     "test": "npm run numberformat"
