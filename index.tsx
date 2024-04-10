@@ -1,4 +1,4 @@
-export async function phoneNumberFormatter(phoneNumber) {
+export async function phoneNumberFormatter(phoneNumber: string) {
     const digitsOnly = phoneNumber.replace(/\D/g, '');
     
     if (!digitsOnly) {
