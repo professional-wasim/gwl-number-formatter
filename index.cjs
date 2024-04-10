@@ -38,34 +38,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.phoneNumberFormatter = void 0;
 async function phoneNumberFormatter(phoneNumber) {
-    return __awaiter(this, void 0, void 0, function () {
-        var digitsOnly, areaCode, firstPart, secondPart, formattedPhoneNumber;
-        return __generator(this, function (_a) {
-            digitsOnly = phoneNumber.replace(/\D/g, '');
-            if (!digitsOnly) {
-                return [2 /*return*/, ''];
-            }
-            areaCode = digitsOnly.slice(0, 3);
-            firstPart = digitsOnly.slice(3, 6);
-            secondPart = digitsOnly.slice(6, 10);
-            formattedPhoneNumber = "";
-            if (areaCode) {
-                formattedPhoneNumber += "(".concat(areaCode, ") ");
-            }
-            if (firstPart) {
-                formattedPhoneNumber += "".concat(firstPart);
-            }
-            if (secondPart) {
-                formattedPhoneNumber += "-".concat(secondPart);
-            }
-            // Remove last character if backspace is pressed and only areaCode is remaining in input field
-            if (formattedPhoneNumber == "(".concat(areaCode, ") ")) {
-                formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
-                formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
-            }
-            console.log(formattedPhoneNumber);
-            return [2 /*return*/, formattedPhoneNumber];
-        });
+    return new Promise((resolve, reject) => {
+      const digitsOnly = phoneNumber.replace(/\D/g, '');
+  
+      if (!digitsOnly) {
+        reject(new Error('Invalid phone number'));
+      }
+  
+      const areaCode = digitsOnly.slice(0, 3);
+      const firstPart = digitsOnly.slice(3, 6);
+      const secondPart = digitsOnly.slice(6, 10);
+  
+      const formattedPhoneNumber = `(${areaCode}) ${firstPart}-${secondPart}`;
+      resolve(formattedPhoneNumber);
     });
-}
+  }
+  
 exports.phoneNumberFormatter = phoneNumberFormatter;
