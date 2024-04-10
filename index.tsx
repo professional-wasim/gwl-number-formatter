@@ -1,4 +1,3 @@
-phoneNumberFormatter('1234567890');
 export async function phoneNumberFormatter(phoneNumber:string) {
     const digitsOnly = phoneNumber.replace(/\D/g, '');
     
