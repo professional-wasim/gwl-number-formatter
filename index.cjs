@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.phoneNumberFormatter = void 0;
-async function phoneNumberFormatter(phoneNumber) {
+function phoneNumberFormatter(phoneNumber, type) {
     return __awaiter(this, void 0, void 0, function () {
         var digitsOnly, areaCode, firstPart, secondPart, formattedPhoneNumber;
         return __generator(this, function (_a) {
@@ -49,21 +49,125 @@ async function phoneNumberFormatter(phoneNumber) {
             firstPart = digitsOnly.slice(3, 6);
             secondPart = digitsOnly.slice(6, 10);
             formattedPhoneNumber = "";
-            if (areaCode) {
-                formattedPhoneNumber += "(".concat(areaCode, ") ");
+            // For xxxxxxxxxx Format
+            if (type == '1') {
+                if (areaCode) {
+                    formattedPhoneNumber += "".concat(areaCode);
+                }
+                if (firstPart) {
+                    formattedPhoneNumber += "".concat(firstPart);
+                }
+                if (secondPart) {
+                    formattedPhoneNumber += "".concat(secondPart);
+                }
             }
-            if (firstPart) {
-                formattedPhoneNumber += "".concat(firstPart);
+            // For (xxx) xxx-xxxx Format
+            else if (type == '2') {
+                if (areaCode) {
+                    formattedPhoneNumber += "(".concat(areaCode, ") ");
+                }
+                if (firstPart) {
+                    formattedPhoneNumber += "".concat(firstPart);
+                }
+                if (secondPart) {
+                    formattedPhoneNumber += "-".concat(secondPart);
+                }
+                // Remove last character if backspace is pressed and only areaCode is remaining in input field
+                if (formattedPhoneNumber == "(".concat(areaCode, ") ")) {
+                    formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
+                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+                }
             }
-            if (secondPart) {
-                formattedPhoneNumber += "-".concat(secondPart);
+            // For xxx-xxx-xxxx Format
+            else if (type == '3') {
+                if (areaCode) {
+                    formattedPhoneNumber += "".concat(areaCode, "-");
+                }
+                if (firstPart) {
+                    formattedPhoneNumber += "".concat(firstPart);
+                }
+                if (secondPart) {
+                    formattedPhoneNumber += "-".concat(secondPart);
+                }
+                // Remove last character if backspace is pressed and only areaCode is remaining in input field
+                if (formattedPhoneNumber == "".concat(areaCode, "-")) {
+                    formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
+                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+                }
             }
-            // Remove last character if backspace is pressed and only areaCode is remaining in input field
-            if (formattedPhoneNumber == "(".concat(areaCode, ") ")) {
-                formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
-                formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+            // For (xxx)xxx-xxxx Format
+            else if (type == '4') {
+                if (areaCode) {
+                    formattedPhoneNumber += "(".concat(areaCode, ")");
+                }
+                if (firstPart) {
+                    formattedPhoneNumber += "".concat(firstPart);
+                }
+                if (secondPart) {
+                    formattedPhoneNumber += "-".concat(secondPart);
+                }
+                // Remove last character if backspace is pressed and only areaCode is remaining in input field
+                if (formattedPhoneNumber == "(".concat(areaCode, ")")) {
+                    formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
+                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+                }
             }
-            console.log(formattedPhoneNumber);
+            // For (xxx)-xxx-xxxx Format
+            else if (type == '5') {
+                if (areaCode) {
+                    formattedPhoneNumber += "(".concat(areaCode, ")-");
+                }
+                if (firstPart) {
+                    formattedPhoneNumber += "".concat(firstPart);
+                }
+                if (secondPart) {
+                    formattedPhoneNumber += "-".concat(secondPart);
+                }
+                // Remove last character if backspace is pressed and only areaCode is remaining in input field
+                if (formattedPhoneNumber == "(".concat(areaCode, ")-")) {
+                    formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
+                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+                }
+            }
+            // For xxx.xxx.xxxx Format
+            else if (type == '6') {
+                if (areaCode) {
+                    formattedPhoneNumber += "".concat(areaCode, ".");
+                }
+                if (firstPart) {
+                    formattedPhoneNumber += "".concat(firstPart);
+                }
+                if (secondPart) {
+                    formattedPhoneNumber += ".".concat(secondPart);
+                }
+                // Remove last character if backspace is pressed and only areaCode is remaining in input field
+                if (formattedPhoneNumber == "".concat(areaCode, ".")) {
+                    formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
+                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+                }
+            }
+            // For xxx xxx xxxx Format
+            else if (type == '7') {
+                if (areaCode) {
+                    formattedPhoneNumber += "".concat(areaCode, " ");
+                }
+                if (firstPart) {
+                    formattedPhoneNumber += "".concat(firstPart);
+                }
+                if (secondPart) {
+                    formattedPhoneNumber += " ".concat(secondPart);
+                }
+                // Remove last character if backspace is pressed and only areaCode is remaining in input field
+                if (formattedPhoneNumber == "".concat(areaCode, " ")) {
+                    formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
+                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+                }
+            }
+            else {
+                console.log("Invalid second parameter: ".concat(type));
+                console.log('Please enter between 1-7');
+                return [2 /*return*/];
+            }
             return [2 /*return*/, formattedPhoneNumber];
         });
     });
