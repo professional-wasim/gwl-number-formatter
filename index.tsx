@@ -88,7 +88,7 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
     // Remove last character if backspace is pressed and only areaCode is remaining in input field
     if (formattedPhoneNumber == `(${areaCode})-`) {
       formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
-      formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+      formattedPhoneNumber = formattedPhoneNumber.slice(0, -2);
     }
   }
   // For xxx.xxx.xxxx Format
@@ -111,19 +111,19 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
   // For xxx xxx xxxx Format
   else if (type == '7') {
     if (areaCode) {
-      formattedPhoneNumber += `${areaCode} `;
+      formattedPhoneNumber += `${areaCode}`;
     }
     if (firstPart) {
-      formattedPhoneNumber += `${firstPart}`;
+      formattedPhoneNumber += ` ${firstPart}`;
     }
     if (secondPart) {
       formattedPhoneNumber += ` ${secondPart}`;
     }
     // Remove last character if backspace is pressed and only areaCode is remaining in input field
-    if (formattedPhoneNumber == `${areaCode} `) {
-      formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
-      formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
-    }
+    // if (formattedPhoneNumber == `${areaCode} `) {
+    //   formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
+    //   formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+    // }
   }
   else {
     console.log(`Invalid second parameter: ${type}`);

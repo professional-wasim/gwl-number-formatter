@@ -126,7 +126,7 @@ function phoneNumberFormatter(phoneNumber, type) {
                 // Remove last character if backspace is pressed and only areaCode is remaining in input field
                 if (formattedPhoneNumber == "(".concat(areaCode, ")-")) {
                     formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
-                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -2);
+                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
                 }
             }
             // For xxx.xxx.xxxx Format
@@ -149,19 +149,19 @@ function phoneNumberFormatter(phoneNumber, type) {
             // For xxx xxx xxxx Format
             else if (type == '7') {
                 if (areaCode) {
-                    formattedPhoneNumber += "".concat(areaCode);
+                    formattedPhoneNumber += "".concat(areaCode, " ");
                 }
                 if (firstPart) {
-                    formattedPhoneNumber += " ".concat(firstPart);
+                    formattedPhoneNumber += "".concat(firstPart);
                 }
                 if (secondPart) {
                     formattedPhoneNumber += " ".concat(secondPart);
                 }
                 // Remove last character if backspace is pressed and only areaCode is remaining in input field
-                // if (formattedPhoneNumber == `${areaCode} `) {
-                //   formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
-                //   formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
-                // }
+                if (formattedPhoneNumber == "".concat(areaCode, " ")) {
+                    formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
+                    formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
+                }
             }
             else {
                 console.log("Invalid second parameter: ".concat(type));
