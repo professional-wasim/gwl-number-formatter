@@ -119,11 +119,6 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
     if (secondPart) {
       formattedPhoneNumber += ` ${secondPart}`;
     }
-    // Remove last character if backspace is pressed and only areaCode is remaining in input field
-    // if (formattedPhoneNumber == `${areaCode} `) {
-    //   formattedPhoneNumber = formattedPhoneNumber.replace(/[ ]/g, '');
-    //   formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
-    // }
   }
   else {
     console.log(`Invalid second parameter: ${type}`);

@@ -1,5 +1,5 @@
 # gwl-number-formatter
-It is a package to format phone number in various formats.
+It is a package to format a phone number in various formats.
 
 
 ### Install
