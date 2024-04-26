@@ -23,6 +23,7 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
       formattedPhoneNumber += `${secondPart}`;
     }
   }
+
   // For (xxx) xxx-xxxx Format
   else if (type == '2') {
     if (areaCode) {
@@ -40,6 +41,7 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
       formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
     }
   }
+
   // For xxx-xxx-xxxx Format
   else if (type == '3') {
     if (areaCode) {
@@ -57,6 +59,7 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
       formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
     }
   }
+
   // For (xxx)xxx-xxxx Format
   else if (type == '4') {
     if (areaCode) {
@@ -74,6 +77,7 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
       formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
     }
   }
+
   // For (xxx)-xxx-xxxx Format
   else if (type == '5') {
     if (areaCode) {
@@ -91,6 +95,7 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
       formattedPhoneNumber = formattedPhoneNumber.slice(0, -2);
     }
   }
+
   // For xxx.xxx.xxxx Format
   else if (type == '6') {
     if (areaCode) {
@@ -108,6 +113,7 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
       formattedPhoneNumber = formattedPhoneNumber.slice(0, -1);
     }
   }
+
   // For xxx xxx xxxx Format
   else if (type == '7') {
     if (areaCode) {
@@ -120,6 +126,7 @@ export async function phoneNumberFormatter(phoneNumber: string, type: string) {
       formattedPhoneNumber += ` ${secondPart}`;
     }
   }
+  
   else {
     console.log(`Invalid second parameter: ${type}`);
     console.log('Please enter between 1-7');
